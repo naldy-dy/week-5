@@ -10,7 +10,7 @@
 	<div class="wrapper">
 		<div class="title-text">
 			<div class="title">
-				<a href="{{url('/login')}}">Login</a> 
+				<a href="{{url('login')}}">Login</a> 
 			</div>
 			<div class="title aktiv">
 				SignUp
@@ -19,27 +19,30 @@
 
 		<div class="form-container">
 			<div class="form-inner">
-				<form action="" method="POST" class="login">	
+				<form action="{{url('signup')}}" method="post" enctype="multipart/form-data">
+							@csrf
 					<div class="field">
 						<input type="text" name="nama" placeholder="Nama" required>
+					</div>
+					<div class="field">
+						<input type="text" name="username" placeholder="Username" required>
 					</div>
 					<div class="field">
 						<input type="email" name="email" placeholder="Email Address" required>
 					</div>
 					<div class="field">
-						<input type="text" name="alamat" placeholder="Alamat Lengkap" required>
+						<input type="text" name="tmptlahir" placeholder="Tempat Lahir" required>
 					</div>
 					<div class="field">
-						<input type="text" name="tlp" min="628" placeholder="No Telepon" required>
+						<input type="date" name="tgllahir" placeholder="Tanggallahir" required>
 					</div>
 					<div class="field">
-						<input type="text" name="pass" placeholder="Password" required>
+						<input type="text" name="password" placeholder="Password" required>
 					</div>
-					<div class="field btn">
-						<div class="tombol">
-							<a href="{{url('login')}}">Sign Up</a>
-						</div>
-					</div>
+						<button type="submit" class="tombol" style="border: 0">
+							<a>Login</a>
+					
+					</button>
 					<div class="signup-link">Sudah Punya Akun ? <a href="{{url('login')}}"> LogIn Now</a></div>
 				</form>
 			</div>

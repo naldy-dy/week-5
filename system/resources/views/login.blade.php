@@ -30,8 +30,8 @@
 					</div>
 					<div class="pass-link"><a href="">Forgate Password</a></div>
 					<div class="field btn">
-					<button type="submit" class="tombol">
-							Login
+					<button type="submit" class="tombol" style="border: 0">
+							<a>Login</a>
 					</button>
 					</div>
 					<div class="signup-link"> Belum Punya Akun ? <a href="{{url('/signup')}}"> SignUp Now</a></div>

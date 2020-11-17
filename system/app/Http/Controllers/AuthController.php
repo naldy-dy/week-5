@@ -26,8 +26,18 @@ class AuthController extends Controller{
 	}
 
 	function Registration(){
-		return view('signup');
-	}
+ 		$user = new User;
+ 		$user->nama = request('nama');
+ 		$user->username = request('username');
+ 		$user->email = request('email');
+ 		$user->tmptlahir = request('tmptlahir');
+ 		$user->tgllahir = request('tgllahir');
+ 		$user->password = bcrypt(request('password'));
+ 		$user->profil = request('gambar');
+ 		$user->save();
+ 		
+ 		return redirect('login')->with('success', 'Data Berhasil ditambah');
+ 	}
 
 	function Forgot(){
 		
