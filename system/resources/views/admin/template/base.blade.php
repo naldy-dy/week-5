@@ -16,6 +16,10 @@
     <link href="{{url('public')}}/assets/css/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <!-- data tabels -->
+    <link rel="stylesheet" type="text/css" href="{{url('public')}}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="{{url('public')}}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    
 
 </head>
 
@@ -64,7 +68,14 @@
     <script src="{{url('public')}}/assets/js/morris/morris.js"></script>
     <!-- Custom Js -->
     <script src="{{url('public')}}/assets/js/custom-scripts.js"></script>
-
+    <!-- dataTabels -->
+    <script src="{{url('public')}}/plugins/datatables/jquery.dataTables.min.js/"></script>
+    <script src="{{url('public')}}/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="{{url('public')}}/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="{{url('public')}}/plugins/datatables-responsive/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(".table-datatable").DataTable();
+    </script>
 
 </body>
 

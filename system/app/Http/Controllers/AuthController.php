@@ -4,17 +4,19 @@ namespace App\Http\Controllers;
 use Auth;
 use App\Models\User;
 
+
+
 class AuthController extends Controller{
 
-
 	function ShowLogin(){
+		$data['list_user'] = User::all();
 		return view('login');
 	}
 
 	function prosesLogin(){
 		if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
-			return redirect('beranda')->with('success', 'Login Berhasil');
-		}else{                                      
+			return redirect('admin/beranda')->with('success', 'Login Berhasil');
+		}else{                           
 			return back()->with('warning', 'Gagal Masuk, Silahan Email dan Password anda');
 		}
 		
@@ -25,18 +27,21 @@ class AuthController extends Controller{
 		return redirect('login');
 	}
 
-	function Registration(){
- 		$user = new User;
- 		$user->nama = request('nama');
- 		$user->username = request('username');
- 		$user->email = request('email');
- 		$user->tmptlahir = request('tmptlahir');
- 		$user->tgllahir = request('tgllahir');
- 		$user->password = bcrypt(request('password'));
- 		$user->profil = request('gambar');
- 		$user->save();
- 		
- 		return redirect('login')->with('success', 'Data Berhasil ditambah');
+	function Registrasi(){
+			return view('signup');
+ 	}
+ 	function prosesRegis(){
+ 		$regis = new User;
+ 		$regis->nama = request('nama');
+ 		$regis->username = request('username');
+ 		$regis->email = request('email');
+ 		$regis->tmptlahir = request('tmptlahir');
+ 		$regis->tgllahir = request('tgllahir');
+ 		$regis->password = bcrypt(request('password'));
+ 		$regis->profil = request('gambar');
+ 		$regis->save();
+
+ 		return redirect('signup')->with('success', 'Data Berhasil ditambah');
  	}
 
 	function Forgot(){

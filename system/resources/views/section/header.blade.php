@@ -3,7 +3,7 @@
         <div class="row">
           <div class="col-md-12">
             <nav class="navbar navbar-expand-lg  container-fluid navbar-dark">
-                <a class="navbar-brand" href="{{url('/')}}"><b><u>La</u>pa<u>k</u> Kay<u>on</u>g</b></a>
+                <a class="navbar-brand" href="{{url('/')}}" style="font-size: 30px;"><b><u>La</u>pa<u>k</u> Kay<u>on</u>g</b></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -21,15 +21,17 @@
                 </div>
             </nav>
           </div>
-        </div>
         <div class="col-md-12">
+          <div class="container-fluid">
           <div class="input-group mb-3 sticky-top">
             <input type="text" class="form-control bg-light shadow" placeholder="Cari Produk ..." aria-describedby="button-addon2">
               <div class="input-group-append">
-                <button class="btn btn-light bg-danger  border border-light" type="button" id="button-addon2"><img src="{{url('public')}}/assets/icon/search.png" width="20px"></button>
+                <button class="btn btn-light bg-danger" type="button" id="button-addon2"><img src="{{url('public')}}/assets/icon/search.png" width="20px"></button>
               </div>
         </div>
+        </div>
       </div>
+        </div>
       <div class="col-md-12 pb-3 text-center">
         Belanjanya Mudah, Murah, Dekat!!!
       </div>

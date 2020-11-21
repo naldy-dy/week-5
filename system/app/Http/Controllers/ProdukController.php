@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 use App\Models\Produk;
+use Faker;
  
 
 
  class ProdukController extends Controller{
 
  	function index(){
- 		$data['list_produk'] = Produk::all();
+ 		$user = request()->user();
+ 		$data['list_produk'] = $user->produk;
  		return view('admin.produk.index', $data);
  	}
  	function create(){
@@ -16,6 +18,7 @@ use App\Models\Produk;
  	}
  	function store(){
  		$produk = new Produk;
+ 		$produk->id_user =request()->user()->id;
  		$produk->nama = request('nama');
  		$produk->harga = request('harga');
  		$produk->stok = request('stok');
@@ -24,7 +27,7 @@ use App\Models\Produk;
  		$produk->gambar = request('gambar');
  		$produk->save();
  		
- 		return redirect('produk')->with('success', 'Data Berhasil ditambah');
+ 		return redirect('admin/produk')->with('success', 'Data Berhasil ditambah');
  	}
 
  	function show(Produk $produk){
@@ -52,6 +55,27 @@ use App\Models\Produk;
  		return redirect('produk')->with('danger', 'Data Berhasil dihapus');
  	}
 
+
+// -------Tombol Pencarian-----------------------
+ 	function filter(){
+ 		// where
+ 		$nama = request('nama');
+ 		$data['list_produk'] = Produk::where('nama','like', "%$nama%")->get();
+ 		$data['nama'] = $nama;
+
+ 		// whereIn
+ 		$stok = explode(" ",request('stok'));
+ 		$data['list_produk'] = Produk::whereIn('stok', $stok)->get();
+ 		$data['stok'] = request('stok');
+
+ 		// whereBetween
+ 		$harga_min = request('harga_min');
+ 		$harga_max = request('harga_max');
+ 		$data['list_produk'] = Produk::whereBetween('harga',[$harga_min, $harga_max])->get();  
+
+
+ 		return view('admin.produk.index', $data);
+ 	}
 
 
 

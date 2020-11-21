@@ -4,15 +4,47 @@
 
 
 	<div class="row">
+		<div class="card">
+			<div class="card-header">
+				Filter
+			</div>
+			<div class="card-body">
+
+				<!-- Pencarrian -->
+				<form action="{{url('admin/produk/filter')}}" method="post">
+					@csrf
+					<div class="form-group">
+						<label for="" class="control-label">Nama</label>
+						<input type="text" name="nama" class="form-control" value="{{$nama ?? ''}}">
+					</div>
+					<div class="form-group">
+						<label for="" class="control-label">Stok</label>
+						<input type="number" name="stok" class="form-control" value="{{$stok ?? ''}}">
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<label for="" class="control-label">Harga Min</label>
+							<input type="number" name="harga_min" class="form-control" value="{{$harga_min ?? ''}}">
+						</div>
+						<div class="col-md-6">
+							<label for="" class="control-label">Harga Max</label>
+							<input type="number" name="harga_max" class="form-control" value="{{$harga_max ?? ''}}">
+						</div>	
+					</div>
+					<button  class="btn btn-sm btn-primary tombol"><i class="fa fa-search"></i> Filter</button>
+				</form>
+				<!-- End pencarian -->
+			</div>
+		</div>
 		<div class="col-md-12">
 			<div class="card">
 				<div class="row">
 				<div class="card-header">
 					<strong>Data Produk</strong>
-					<a href="{{url('admin/create')}}" class="btn btn-sm btn-primary tombol"><i class="fa fa-plus"></i> Tambah Data</a>
+					<a href="{{url('admin/produk/create')}}" class="btn btn-sm btn-primary tombol"><i class="fa fa-plus"></i> Tambah Data</a>
 				</div>
 				<div class="card-body">
-					<table class="table">
+					<table class="table table-datatable">
 						<thead class="bg-primary">
 							<th>No</th>
 							<th>Aksi</th>

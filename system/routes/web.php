@@ -14,7 +14,10 @@ use App\Http\Controllers\UserController;
 Route::get('login',[AuthController:: class, 'showLogin'])->name('login');
 Route::post('login',[AuthController:: class, 'prosesLogin']);
 Route::get('logout',[AuthController:: class, 'logout']);
-Route::get('signup',[AuthController:: class, 'Registration']);
+Route::get('signup',[AuthController:: class, 'Registrasi']);
+Route::get('signup',[AuthController:: class, 'prosesRegis']);
+
+
 
 
 
@@ -32,14 +35,15 @@ Route::get('/detail/{detail}',[IndexController:: class, 'showDetail']);
 
 
 // admin
-Route::get('beranda', [HomeController:: class, 'showBeranda']);
-Route::get('jual-produk', [HomeController:: class, 'showJual']);
-Route::get('kategori', [HomeController:: class, 'showKategori']);
 
 
 
 // prefix----------------------------------------------
 Route::prefix('admin')->middleware('auth')->group(function(){
+		Route::get('beranda', [HomeController:: class, 'showBeranda']);
+		Route::get('jual-produk', [HomeController:: class, 'showJual']);
+		Route::get('kategori', [HomeController:: class, 'showKategori']);
+		Route::post('produk/filter',[ProdukController:: class,'filter']);
 		// produk
 		Route::resource('produk',ProdukController:: class);
 		// Kategori

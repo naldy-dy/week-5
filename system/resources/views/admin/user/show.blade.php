@@ -42,6 +42,11 @@
 								<td>{{$user->tgllahir}}</td>
 							</tr>
 							<tr>
+								<th>No Handphone</th>
+								<th>:</th>
+								<td>{{$user->detail->no_handphone}}</td>
+							</tr>
+							<tr>
 								<th>Password</th>
 								<th>:</th>
 								<td>{{$user->password}}</td>

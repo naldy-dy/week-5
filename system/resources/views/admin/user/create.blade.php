@@ -34,6 +34,10 @@
 								<input type="date" class="form-control" name="tgllahir" required>
 							</div>
 							<div class="form-group">
+								<label class="control-label">No Handphone</label>
+								<input type="number" class="form-control" name="no_handphone" required>
+							</div>
+							<div class="form-group">
 								<label class="control-label">Password</label>
 								<input type="password" class="form-control" name="password" required>
 							</div>

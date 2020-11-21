@@ -31,13 +31,13 @@
 						<input type="email" name="email" placeholder="Email Address" required>
 					</div>
 					<div class="field">
-						<input type="text" name="tmptlahir" placeholder="Tempat Lahir" required>
+						<input type="text" name="tmptlahir" placeholder="Tempat Lahir" >
 					</div>
 					<div class="field">
 						<input type="date" name="tgllahir" placeholder="Tanggallahir" required>
 					</div>
 					<div class="field">
-						<input type="text" name="password" placeholder="Password" required>
+						<input type="text" name="password" placeholder="Password Baru" required>
 					</div>
 						<button type="submit" class="tombol" style="border: 0">
 							<a>Login</a>

@@ -15,7 +15,8 @@
 						<p>
 							<b style="color: red">Rp. {{number_format($produk->harga)}} </b>|
 								Stok : {{$produk->stok}} |
-								Lokasi : {{$produk->lokasi}}
+								Lokasi : {{$produk->lokasi}}| 
+								Seller : {{$produk->seller->nama}}
 						</p>
 						<div class="box">
 							<div class="card">

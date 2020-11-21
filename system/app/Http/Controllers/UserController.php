@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\UserDetail;
  
 
 
  class UserController extends Controller{
 
  	function index(){
- 		$data['list_user'] = User::all();
+ 		$data['list_user'] = User::withCount('produk')->get();
  		return view('admin.user.index', $data);
  	}
  	function create(){
@@ -24,8 +25,13 @@ use App\Models\User;
  		$user->password = bcrypt(request('password'));
  		$user->profil = request('gambar');
  		$user->save();
+
+ 		$userDetail = new UserDetail;
+ 		$userDetail->id_user = $user->id;
+ 		$userDetail->no_handphone = request('no_handphone');
+ 		$userDetail->save();
  		
- 		return redirect('user')->with('success', 'Data Berhasil ditambah');
+ 		return redirect('admin/user')->with('success', 'Data Berhasil ditambah');
  	}
 
  	function show(User $user){
